@@ -1,5 +1,8 @@
+<script setup>
+    import { Layout } from '@/Shared';
+</script>
 <template>
-    <div>
+    <Layout>
         <h1  class="container alert alert-success">Welcome to vue inertia js</h1>
-    </div>
+    </Layout>
 </template>
