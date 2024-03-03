@@ -10,6 +10,11 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .mount(el)
+  },
+  progress:{
+    delay: 250,
+    color: "#29d",
+    includeCSS: true,
   }
 
 })

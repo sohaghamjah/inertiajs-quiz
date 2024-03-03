@@ -5,19 +5,13 @@
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <Link href="#" class="nav-link active" aria-current="page">Home</Link>
+                <Link href="/" class="nav-link active" aria-current="page">Home</Link>
             </li>
             <li class="nav-item">
-                <Link href="#" class="nav-link">Features</Link>
+                <Link href="/quiz" class="nav-link">Quiz</Link>
             </li>
             <li class="nav-item">
-                <Link href="#" class="nav-link">Pricing</Link>
-            </li>
-            <li class="nav-item">
-                <Link href="#" class="nav-link">FAQs</Link>
-            </li>
-            <li class="nav-item">
-                <Link href="#" class="nav-link">About</Link>
+                <Link href="/questions" class="nav-link">Questions</Link>
             </li>
         </ul>
     </header>

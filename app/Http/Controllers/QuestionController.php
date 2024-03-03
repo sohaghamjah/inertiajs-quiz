@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class QuestionController extends Controller
 {
@@ -12,7 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Questions');
     }
 
     /**
@@ -28,7 +30,16 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = Question::create(['question' => $request->question, 'status' => 1]);
+        foreach ($request->answers ?? [] as $key => $value) {
+            Answer::create([
+                'question_id' => $question->id,
+                'answer'      => $value['answer'],
+                'is_correct'  => $value['correct_answer'],
+            ]);
+        }
+        return redirect('/questions')->with('success', 'Question and answer created successful');
+
     }
 
     /**
