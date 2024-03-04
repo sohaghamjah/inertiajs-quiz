@@ -75,16 +75,18 @@ import { router, usePage } from '@inertiajs/vue3';
             question:createdNewQuestion.value,
             answers: newAnswersField.value
         }); 
-
+  
         router.on('success', () => {
             newAnswersField.value = [];
             createdNewQuestion.value = null;
             fieldCount = 1;
         })
-
-
-
     }
+
+    const props = defineProps({
+        questions: Object,
+        errors: Object,
+    });
 
 </script>
 <template>
@@ -94,17 +96,19 @@ import { router, usePage } from '@inertiajs/vue3';
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                <tr v-for="(question,index) in questions" :key="index">
+                    <th scope="row">{{ index + 1 }}</th>
+                    <td>{{ question.question }}</td>
+                    <td>
+                        <button class="btn btn-sm me-1 btn-success">View</button>
+                        <button class="btn btn-sm me-1 btn-info">Edit</button>
+                        <button class="btn btn-sm me-1 btn-danger">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
